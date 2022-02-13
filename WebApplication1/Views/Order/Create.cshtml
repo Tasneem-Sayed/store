@@ -1,0 +1,57 @@
+﻿@model Store.BL.Models.OrderVM
+@inject Store.BL.Interface.IProductOrderRep productrep
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<form asp-controller="Order" asp-action="Create" method="post" class="form-group">
+    <select asp-for="StoreProductId" asp-items="@(SelectList)ViewBag.StoreList">
+        <option>Choose Store</option>
+    </select>
+    <br />
+    <br />
+    @*<ul>
+        @foreach (var item in productrep.Get())
+        {
+
+            <li>@item.Products.</li>
+
+        }
+    </ul>*@
+
+        <select asp-for="ProductId" asp-items="@(SelectList)ViewBag.ProductsList">
+            <option>Choose Product</option>
+        </select>
+        <br />
+        <br />
+        <label asp-for="Quantity">Quantity</label>
+        <input type="text" asp-for="Quantity" class="form-control" />
+        <span class="text-danger" asp-validation-for="Quantity"></span>
+        <label>Quantity Must Not Be Over 800</label>
+        <br /><br />
+
+
+
+        <label asp-for="Price">Price</label>
+        <input type="text" asp-for="Price" class="form-control" />
+        <span class="text-danger" asp-validation-for="Price"></span>
+        <br /><br />
+
+        <label asp-for="Date">Date</label>
+        <input type="date" asp-for="Date" class="form-control" />
+        <span class="text-danger" asp-validation-for="Date"></span>
+        <br /><br />
+
+
+
+        <br />
+        <center>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </center>
+
+    </form>
+
+
+

@@ -1,0 +1,29 @@
+﻿@model Store.BL.Models.StoreVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<form asp-controller="Stores" asp-action="Create" method="post" class="form-group">
+
+    <label asp-for="Name"> Name</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <span class="text-danger" asp-validation-for="Name"></span>
+    <br />
+
+    <label asp-for="Location">Location </label>
+    <input type="text" asp-for="Location" class="form-control" />
+    <span class="text-danger" asp-validation-for="Location"></span>
+
+    <br />
+
+    <center>
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </center>
+
+</form>
+
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

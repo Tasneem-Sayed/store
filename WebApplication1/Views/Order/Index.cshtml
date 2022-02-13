@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Store.BL.Models.OrderVM>
+@inject Store.BL.Interface.IProductOrderRep productrrep
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<table class="table table-bordered table-striped table-hover js-basic-example dataTable text-center font-weight-bold">
+    <thead>
+        <tr class="table-dark">
+            <th>Date</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <td>ProductOrder</td>
+            <th>StoresLocation</th>
+            
+            @*<th>Availabel</th>
+                <th></th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Date</td>
+            <td>@item.Price</td>
+            <td>@item.Quantity</td>
+           @foreach(var items in productrrep.Get() )
+           { <td>@items.Products.Name</td>}
+            
+
+            <td>@item.Stores.Name</td>
+            <td><a asp-action="Details" asp-controller="Order" asp-route-id="@item.Id" class="btn btn-info">Details</a></td>
+            @*<td><a asp-action="Edit" asp-controller="Employee" asp-route-id="@item.Id" class="btn btn-warning">@SharedLocalizer["Update"]</a></td>
+        <td><a asp-action="Delete" asp-controller="Employee" asp-route-id="@item.Id" class="btn btn-danger">@SharedLocalizer["Delete"]</a></td>*@
+        </tr>
+        }
+    </tbody>
+</table>

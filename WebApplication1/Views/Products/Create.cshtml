@@ -1,0 +1,45 @@
+﻿@model Store.BL.Models.ProductsVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form asp-controller="Products" asp-action="Create" method="post" class="form-group">
+
+    <label asp-for="Name">Product Name</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <span class="text-danger" asp-validation-for="Name"></span>
+    <br /><br />
+
+    <label asp-for="Price">Price</label>
+    <input type="text" asp-for="Price" class="form-control" />
+    <span class="text-danger" asp-validation-for="Price"></span>
+    <br /><br />
+
+    <label asp-for="Quantity">Quantity</label>
+    <input type="text" asp-for="Quantity" class="form-control" />
+    <span class="text-danger" asp-validation-for="Quantity"></span>
+    <br /><br />
+
+    <label asp-for="Date"> Date</label>
+    <input type="date" asp-for="Date" class="form-control" />
+    <span class="text-danger" asp-validation-for="Date"></span>
+    <br /><br />
+
+  
+    <select asp-for="StoreProductId" asp-items="@(SelectList)ViewBag.StoreList">
+        <option>Choose Store</option>
+    </select>
+    <label asp-for="Description">Description</label>
+    <input type="text" asp-for="Description" class="form-control" />
+    <span class="text-danger" asp-validation-for="Description"></span>
+    <br /><br />
+
+
+    <br />
+    <center>
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </center>
+
+</form>
+
+

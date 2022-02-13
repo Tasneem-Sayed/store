@@ -1,0 +1,68 @@
+﻿@model Store.BL.Models.ProductsVM
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+@*@section BootstrapSelect{
+        <link href="~/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+    }*@
+
+<div class="block-header">
+    <a>Details </a>
+</div>
+
+
+<label asp-for="Id">Id</label>
+<input type="text" class="form-control" asp-for="Id" disabled />
+<br />
+
+<label asp-for="Name">Name</label>
+<input type="text" class="form-control" asp-for="Name" disabled />
+<br />
+
+
+<label asp-for="Quantity">Quantity</label>
+<input type="text" class="form-control" asp-for="Quantity" disabled />
+<br />
+
+<label asp-for="Date">Date</label>
+<input type="text" class="form-control" asp-for="Date" disabled />
+<br />
+
+<label asp-for="Description">Description</label>
+<textarea class="form-control" asp-for="Description" disabled></textarea>
+<br />
+
+<select asp-for="StoreProductId" asp-items="(SelectList)ViewBag.ProductsList">
+    <option>Choose Store</option>
+</select>
+<br />
+
+<thead>
+    <tr class="table-dark">
+        <th>OrderId</th>
+        <th>Quantity</th>
+        <th>Date</th>
+        <th>StoreOrderId</th>
+       
+    
+    </tr>
+</thead>
+
+
+<br />
+<br />
+
+  
+
+
+
+<center>
+    <a asp-controller="Products" asp-action="Index" class="btn btn-primary">Back To Data</a>
+    <a asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    <a asp-controller="Products" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-primary">Delete</a>
+</center>
